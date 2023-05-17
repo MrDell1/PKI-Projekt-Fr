@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "rvest.vs-code-prettier-eslint",
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "mhutchie.git-graph",
+    "eg2.vscode-npm-script",
+    "naumovs.color-highlight"
+  ]
+}
