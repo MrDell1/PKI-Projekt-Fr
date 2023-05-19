@@ -80,7 +80,7 @@ const LandingPage = (): ReactElement => {
             </Flex>
           </>
         ) : (
-          <Link to={paths.resources}>
+          <Link to={paths.dashboard}>
             <Button>Resources</Button>
           </Link>
         )}

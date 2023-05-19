@@ -7,7 +7,7 @@ import {
   useMemo,
 } from "react";
 
-const baseURL = "http://localhost:3000";
+export const baseURL = "http://localhost:3000";
 
 export type AuthValue = {
   email: string;
@@ -15,15 +15,14 @@ export type AuthValue = {
 };
 
 export type RegistrationArgs = {
-  date?: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  privacyPolicy?: boolean;
   rePassword: string;
 };
 
 export type AuthService = {
-  role: string;
   username: string;
   email: string;
   authorization: string;
@@ -55,7 +54,6 @@ type SessionServiceState =
   | {
       status: "auth";
       authorization: string;
-      role: string;
       username: string;
       email: string;
     }
@@ -106,15 +104,13 @@ export const SessionServiceProvider = ({ children }: Props): ReactElement => {
     getSessionQueryKey(),
     (): Promise<SessionServiceState> => {
       const authorization = localStorage.getItem("authorization");
-      const role = localStorage.getItem("role");
       const username = localStorage.getItem("username");
       const email = localStorage.getItem("email");
       return Promise.resolve(
-        authorization && role && username && email
+        authorization && username && email
           ? {
               status: "auth",
               authorization: authorization,
-              role: role,
               username: username,
               email: email,
             }
@@ -148,14 +144,12 @@ export const SessionServiceProvider = ({ children }: Props): ReactElement => {
                 throw new Error(result.error);
               }
               localStorage.setItem("authorization", result.token);
-              localStorage.setItem("role", result.user.role);
               localStorage.setItem("username", result.user.username);
               localStorage.setItem("email", result.user.email);
 
               client.setQueryData<SessionServiceState>(getSessionQueryKey(), {
                 status: "auth",
                 authorization: result.token,
-                role: result.user.role,
                 username: result.user.username,
                 email: result.user.email,
               });
@@ -175,14 +169,12 @@ export const SessionServiceProvider = ({ children }: Props): ReactElement => {
                 throw new Error(result.error);
               }
               localStorage.setItem("authorization", result.token);
-              localStorage.setItem("role", result.user.role);
               localStorage.setItem("username", result.user.username);
               localStorage.setItem("email", result.user.email);
 
               client.setQueryData<SessionServiceState>(getSessionQueryKey(), {
                 status: "auth",
                 authorization: result.token,
-                role: result.user.role,
                 username: result.user.username,
                 email: result.user.email,
               });
@@ -202,14 +194,12 @@ export const SessionServiceProvider = ({ children }: Props): ReactElement => {
                 throw new Error(result.error);
               }
               localStorage.setItem("authorization", result.token);
-              localStorage.setItem("role", result.user.role);
               localStorage.setItem("username", result.user.username);
               localStorage.setItem("email", result.user.email);
 
               client.setQueryData<SessionServiceState>(getSessionQueryKey(), {
                 status: "auth",
                 authorization: result.token,
-                role: result.user.role,
                 username: result.user.username,
                 email: result.user.email,
               });
@@ -240,7 +230,6 @@ export const SessionServiceProvider = ({ children }: Props): ReactElement => {
           value: {
             signOut: () => {
               localStorage.removeItem("authorization");
-              localStorage.removeItem("role");
               localStorage.removeItem("username");
               localStorage.removeItem("email");
 
@@ -274,7 +263,6 @@ export const SessionServiceProvider = ({ children }: Props): ReactElement => {
 
               return response;
             },
-            role: data.role,
             username: data.username,
             email: data.email,
             authorization: data.authorization,

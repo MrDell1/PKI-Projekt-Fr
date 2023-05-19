@@ -16,7 +16,7 @@ export const GitHubAuth = (): ReactElement => {
         navigate(paths.signIn);
       },
       onSuccess: () => {
-        navigate(paths.resources);
+        navigate(paths.dashboard);
       },
     });
   };

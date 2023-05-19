@@ -3,7 +3,7 @@ export const paths = {
   public: "/public",
   signIn: "/signIn",
   signUp: "/signUp",
-  resources: "/resources",
+  dashboard: "/dashboard",
   googleAuth: "/oauthgoogle",
   githubAuth: "/oauthgithub",
 };

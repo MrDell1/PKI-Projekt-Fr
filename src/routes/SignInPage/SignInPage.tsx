@@ -12,7 +12,7 @@ const SignInPage = (): ReactElement => {
   const location = useLocation();
   const from = ((location.state as any)?.from?.pathname as string) || "/";
   if (status === "auth") {
-    return <Navigate replace to={paths.resources} />;
+    return <Navigate replace to={paths.dashboard} />;
   }
   return (
     <Flex

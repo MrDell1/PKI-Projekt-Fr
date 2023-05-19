@@ -13,7 +13,8 @@ export const SignUpForm = (): ReactElement => {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      username: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
       rePassword: "",
@@ -46,14 +47,27 @@ export const SignUpForm = (): ReactElement => {
           _placeholder={{ color: "white", opacity: "0.5" }}
           borderRadius="xl"
           h="fit-content"
-          id="username"
-          name="username"
+          id="firstName"
+          name="firstName"
           onChange={formik.handleChange}
-          placeholder="Username"
+          placeholder="First name"
           py="3"
           textColor="white"
           type="text"
-          value={formik.values.username}
+          value={formik.values.firstName}
+        />
+        <Input
+          _placeholder={{ color: "white", opacity: "0.5" }}
+          borderRadius="xl"
+          h="fit-content"
+          id="lastName"
+          name="lastName"
+          onChange={formik.handleChange}
+          placeholder="Last name"
+          py="3"
+          textColor="white"
+          type="text"
+          value={formik.values.lastName}
         />
         <Input
           _placeholder={{ color: "white", opacity: "0.5" }}

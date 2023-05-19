@@ -8,7 +8,7 @@ const Google = (): ReactElement => {
   const status = useSessionStatus();
 
   if (status === "auth") {
-    return <Navigate replace to={paths.resources} />;
+    return <Navigate replace to={paths.dashboard} />;
   }
   return <GoogleAuth />;
 };

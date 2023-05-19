@@ -1,7 +1,7 @@
 import { paths } from "@utils/paths";
 import { lazy, ReactElement, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Resource } from "./Resource/Resource";
+import { Dashboard } from "./Dashboard/Dashboard";
 
 const ContentWrapper = lazy(() => import("./ContentWrapper/ContentWrapper"));
 const SignInPage = lazy(() => import("./SignInPage/SignInPage"));
@@ -76,7 +76,7 @@ export const Router = (): ReactElement => {
           path={paths.root}
         >
           <Route element={<ContentWrapper />}>
-            <Route element={<Resource />} path={paths.resources} />
+            <Route element={<Dashboard />} path={paths.dashboard} />
           </Route>
         </Route>
       </Routes>

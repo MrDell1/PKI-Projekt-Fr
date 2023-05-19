@@ -8,18 +8,32 @@ export const TopBar = (): ReactElement => {
   const authService = useAuthService();
   const navigate = useNavigate();
   return (
-    <Flex justifyContent="space-between" alignItems="center" px="16" py="4" backgroundColor="light.100" borderBottomRadius="xl" boxShadow="md">
+    <Flex
+      alignItems="center"
+      backgroundColor="light.100"
+      borderBottomRadius="xl"
+      boxShadow="md"
+      justifyContent="space-between"
+      px="16"
+      py="4"
+    >
       <Flex gap="4">
-      <Button onClick={() => navigate(paths.root)} size="sm" variant="tertiary">
-        Home
-      </Button>
-      <Button onClick={() => authService.signOut()} size="sm" variant="tertiary">
-        Sign Out
-      </Button>
+        <Button
+          onClick={() => navigate(paths.root)}
+          size="sm"
+          variant="tertiary"
+        >
+          Home
+        </Button>
+        <Button
+          onClick={() => authService.signOut()}
+          size="sm"
+          variant="tertiary"
+        >
+          Sign Out
+        </Button>
       </Flex>
-      <Text fontWeight="bold">
-        {authService.username}
-      </Text>
+      <Text fontWeight="bold">{authService.username}</Text>
     </Flex>
   );
 };
