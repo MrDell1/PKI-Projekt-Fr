@@ -1,5 +1,6 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { Router } from "@routes/Router";
+import { DashboardServiceProvider } from "@services/DashboardService";
 import { SessionServiceProvider } from "@services/SessionService";
 import { rawTheme } from "@styles/theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -14,7 +15,9 @@ const App = (): ReactElement => {
     <QueryClientProvider client={client}>
       <ChakraProvider theme={theme}>
         <SessionServiceProvider>
-          <Router />
+          <DashboardServiceProvider>
+            <Router />
+          </DashboardServiceProvider>
         </SessionServiceProvider>
       </ChakraProvider>
     </QueryClientProvider>

@@ -2,6 +2,7 @@ import { paths } from "@utils/paths";
 import { lazy, ReactElement, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Dashboard } from "./Dashboard/Dashboard";
+import { TableEditor } from "./TableEditor/TableEditor";
 
 const ContentWrapper = lazy(() => import("./ContentWrapper/ContentWrapper"));
 const SignInPage = lazy(() => import("./SignInPage/SignInPage"));
@@ -10,7 +11,6 @@ const LandingPage = lazy(() => import("./LandingPage/LandingPage"));
 const Public = lazy(() => import("./Public/Public"));
 const Protected = lazy(() => import("./Protected/Protected"));
 const Google = lazy(() => import("./Google/Google"));
-const GitHub = lazy(() => import("./GitHub/GitHub"));
 
 export const Router = (): ReactElement => {
   return (
@@ -61,23 +61,13 @@ export const Router = (): ReactElement => {
         <Route
           element={
             <Suspense fallback={null}>
-              <GitHub />
-            </Suspense>
-          }
-          path={paths.githubAuth}
-        />
-
-        <Route
-          element={
-            <Suspense fallback={null}>
               <Protected />
             </Suspense>
           }
           path={paths.root}
         >
-          <Route element={<ContentWrapper />}>
-            <Route element={<Dashboard />} path={paths.dashboard} />
-          </Route>
+          <Route element={<Dashboard />} path={paths.dashboard} />
+          <Route element={<TableEditor />} path={paths.tableTemplate} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -67,7 +67,7 @@ export const Button: ComponentStyleConfig = {
     primary: {
       w: "fit-content",
       h: "fit-content",
-      border: "0",
+      border: "none",
       color: "white",
       span: {
         fill: "white",
@@ -80,9 +80,9 @@ export const Button: ComponentStyleConfig = {
       },
       _disabled: {
         border: "none",
-        backgroundColor: "red.900!important", // no way to override without !important
-        color: "gray.400",
-        opacity: "1!important", // no way to override without !important
+        backgroundColor: "red.500!important", // no way to override without !important
+        color: "white",
+        opacity: "0.6!important", // no way to override without !important
         _hover: {
           border: "none",
         },
@@ -109,7 +109,7 @@ export const Button: ComponentStyleConfig = {
       _hover: {
         bg: "green.400",
       },
-    }
+    },
   },
   defaultProps: {
     size: "lg",

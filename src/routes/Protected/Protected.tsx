@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { useSessionStatus } from "@services/SessionService";
 import { paths } from "@utils/paths";
 import { ReactElement } from "react";
@@ -11,11 +11,9 @@ const Protected = (): ReactElement => {
   }
 
   return (
-    <Box data-testid="outer" inset={0} zIndex={-1}>
-      <Flex flexDirection="column" h="100vh">
-        <Outlet />
-      </Flex>
-    </Box>
+    <Flex flexDirection="column" h="100vh">
+      <Outlet />
+    </Flex>
   );
 };
 

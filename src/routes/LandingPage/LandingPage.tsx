@@ -37,16 +37,6 @@ const LandingPage = (): ReactElement => {
           <Heading fontSize="7xl" textColor="white">
             Check out JWT Tokens
           </Heading>
-          <Link to={paths.public}>
-            <Text
-              _hover={{ color: "light.100" }}
-              fontSize="3xl"
-              fontWeight="semibold"
-              textColor="white"
-            >
-              or Public resources
-            </Text>
-          </Link>
         </Box>
         {status === "anon" ? (
           <>
@@ -81,7 +71,7 @@ const LandingPage = (): ReactElement => {
           </>
         ) : (
           <Link to={paths.dashboard}>
-            <Button>Resources</Button>
+            <Button>Dashboard</Button>
           </Link>
         )}
       </Flex>
