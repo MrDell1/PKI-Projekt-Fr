@@ -35,7 +35,7 @@ export const Controller = ({
       gap="8"
       justifyContent="center"
       px="32"
-      py="16"
+      py="12"
       w="50%"
     >
       <Text fontSize="2xl" fontWeight="semibold" textAlign="center">
