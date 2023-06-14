@@ -9,13 +9,15 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { DatabaseDetail } from "@services/DashboardService";
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 
 type Props = {
   data: DatabaseDetail;
   onRequestChange: (value: string) => void;
   onRequestSubmit: () => void;
   request: string;
+  onTableChange: (value: string) => void;
+  table: string;
 };
 
 export const Controller = ({
@@ -23,10 +25,9 @@ export const Controller = ({
   onRequestChange,
   onRequestSubmit,
   request,
+  table,
+  onTableChange,
 }: Props): ReactElement => {
-  //const [request, setRequest] = useState("");
-  const [table, setTable] = useState("");
-
   return (
     <Flex
       alignItems="center"
@@ -54,7 +55,7 @@ export const Controller = ({
         borderColor="light.200"
         fontWeight="semibold"
         onChange={(e) => {
-          setTable(e.target.value);
+          onTableChange(e.target.value);
           onRequestChange(`SELECT * FROM ${e.target.value}`);
         }}
         placeholder="Select table"

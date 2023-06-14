@@ -92,6 +92,9 @@ export const DashboardServiceProvider = ({ children }: Props): ReactElement => {
           );
           const databaseNameResult = await databaseNameResponse.json();
           if (!databaseNameResponse.ok) {
+            if (databaseNameResult.error.name === "TokenExpiredError") {
+              context.value.signOut();
+            }
             throw new Error(databaseNameResult.error);
           }
           const tablesNamesResponse = await context.value.fetcher(
@@ -116,7 +119,9 @@ export const DashboardServiceProvider = ({ children }: Props): ReactElement => {
           );
           const result = await response.json();
           if (!response.ok) {
-            console.log(result);
+            if (result.error.name === "TokenExpiredError") {
+              context.value.signOut();
+            }
             throw new Error(result.error);
           }
 
@@ -127,7 +132,7 @@ export const DashboardServiceProvider = ({ children }: Props): ReactElement => {
             }
             return { cells };
           });
-          console.log(table);
+
           return table;
         },
         sendSQLRequest: async (request) => {
@@ -136,17 +141,13 @@ export const DashboardServiceProvider = ({ children }: Props): ReactElement => {
           );
           const result = await response.json();
           if (!response.ok) {
+            if (result.error.name === "TokenExpiredError") {
+              context.value.signOut();
+            }
             throw new Error(result.error);
           }
-          const table = result.flatMap((resultRow) => {
-            const cells = [];
-            for (const [key, value] of Object.entries(resultRow)) {
-              cells.push({ columnName: key, value: value });
-            }
-            return { cells };
-          });
-          console.log(table);
-          return table;
+
+          return Promise.resolve();
         },
       },
     };

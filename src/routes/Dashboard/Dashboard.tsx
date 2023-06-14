@@ -14,6 +14,11 @@ export const Dashboard = (): ReactElement => {
   );
   const [request, setRequest] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [table, setTable] = useState("");
+
+  const handleTableChange = (value: string) => {
+    setTable(value);
+  };
 
   const handleRequestChange = (value: string) => {
     setRequest(value);
@@ -38,13 +43,15 @@ export const Dashboard = (): ReactElement => {
         py="16"
       >
         {isSubmitted ? (
-          <TableViewer request={request} />
+          <TableViewer request={request} tableName={table} />
         ) : (
           <Controller
             data={data}
             onRequestChange={handleRequestChange}
             onRequestSubmit={handleRequestSubmit}
+            onTableChange={handleTableChange}
             request={request}
+            table={table}
           />
         )}
       </Flex>

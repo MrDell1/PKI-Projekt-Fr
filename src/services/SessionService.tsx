@@ -144,13 +144,13 @@ export const SessionServiceProvider = ({ children }: Props): ReactElement => {
                 throw new Error(result.error);
               }
               localStorage.setItem("authorization", result.token);
-              localStorage.setItem("username", result.user.username);
+              localStorage.setItem("username", result.user.first_name);
               localStorage.setItem("email", result.user.email);
 
               client.setQueryData<SessionServiceState>(getSessionQueryKey(), {
                 status: "auth",
                 authorization: result.token,
-                username: result.user.username,
+                username: result.user.first_name,
                 email: result.user.email,
               });
               return Promise.resolve();
@@ -164,48 +164,22 @@ export const SessionServiceProvider = ({ children }: Props): ReactElement => {
               );
 
               const result = await response.json();
-              console.log(result);
+
               if (!response.ok || !result) {
                 throw new Error(result.error);
               }
               localStorage.setItem("authorization", result.token);
-              localStorage.setItem("username", result.user.username);
+              localStorage.setItem("username", result.user.first_name);
               localStorage.setItem("email", result.user.email);
 
               client.setQueryData<SessionServiceState>(getSessionQueryKey(), {
                 status: "auth",
                 authorization: result.token,
-                username: result.user.username,
+                username: result.user.first_name,
                 email: result.user.email,
               });
               return Promise.resolve();
             },
-            oauthGithub: async (value) => {
-              const response = await fetch(
-                `https://pkilab6.azurewebsites.net/auth/oauth/github${value}`,
-                {
-                  method: "GET",
-                }
-              );
-
-              const result = await response.json();
-              console.log(result);
-              if (!response.ok || !result) {
-                throw new Error(result.error);
-              }
-              localStorage.setItem("authorization", result.token);
-              localStorage.setItem("username", result.user.username);
-              localStorage.setItem("email", result.user.email);
-
-              client.setQueryData<SessionServiceState>(getSessionQueryKey(), {
-                status: "auth",
-                authorization: result.token,
-                username: result.user.username,
-                email: result.user.email,
-              });
-              return Promise.resolve();
-            },
-
             signUp: async (value) => {
               const response = await fetch(`${baseURL}/auth/signup`, {
                 method: "POST",

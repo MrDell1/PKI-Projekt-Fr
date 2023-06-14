@@ -1,6 +1,5 @@
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { useSessionStatus } from "@services/SessionService";
-import { getGithubUrl } from "@utils/getGithubUrl";
 import { getGoogleUrl } from "@utils/getGoogleUrl";
 import { paths } from "@utils/paths";
 import { ReactElement } from "react";
@@ -64,11 +63,6 @@ const SignUpPage = (): ReactElement => {
             <Link to={getGoogleUrl(from)}>
               <Button bg="red.600" size="md">
                 Google
-              </Button>
-            </Link>
-            <Link to={getGithubUrl()}>
-              <Button bg="gray.700" size="md">
-                GitHub
               </Button>
             </Link>
           </Flex>
