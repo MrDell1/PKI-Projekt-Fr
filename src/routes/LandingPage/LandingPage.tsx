@@ -23,7 +23,7 @@ const LandingPage = (): ReactElement => {
       w="full"
     >
       <Flex flexDir="row" gap="16" textColor="light.100">
-        <Heading>JWT Token</Heading>
+        <Heading>Database editor</Heading>
       </Flex>
       <Flex
         alignItems="center"
@@ -35,7 +35,7 @@ const LandingPage = (): ReactElement => {
       >
         <Box>
           <Heading fontSize="7xl" textColor="white">
-            Check out JWT Tokens
+            Check out our database
           </Heading>
         </Box>
         {status === "anon" ? (

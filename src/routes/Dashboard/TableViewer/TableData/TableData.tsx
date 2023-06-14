@@ -1,19 +1,14 @@
-import { ReactElement, useEffect, useMemo, useState } from "react";
+import { ReactElement, useMemo, useState } from "react";
 import {
-  Box,
-  Button,
   Flex,
   IconButton,
-  Spinner,
   Table,
   TableContainer,
   Tbody,
   Td,
-  Text,
   Th,
   Thead,
   Tr,
-  useTimeout,
 } from "@chakra-ui/react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Row } from "@services/DashboardService";
