@@ -19,6 +19,50 @@ export const SignUpForm = (): ReactElement => {
       password: "",
       rePassword: "",
     },
+    validate: (values) => {
+      if (!values.email) {
+        toast({
+          title: "Error",
+          status: "error",
+          description: "Email is required",
+        });
+      }
+      if (!values.firstName) {
+        toast({
+          title: "Error",
+          status: "error",
+          description: "First name is required",
+        });
+      }
+      if (!values.lastName) {
+        toast({
+          title: "Error",
+          status: "error",
+          description: "Last name is required",
+        });
+      }
+      if (!values.password) {
+        toast({
+          title: "Error",
+          status: "error",
+          description: "Password is required",
+        });
+      }
+      if (!values.rePassword) {
+        toast({
+          title: "Error",
+          status: "error",
+          description: "Repeat password",
+        });
+      }
+      if (values.password !== values.rePassword) {
+        toast({
+          title: "Error",
+          status: "error",
+          description: "Passwords are different",
+        });
+      }
+    },
     onSubmit: (values) => {
       mutate(values, {
         onError: (error) => {
