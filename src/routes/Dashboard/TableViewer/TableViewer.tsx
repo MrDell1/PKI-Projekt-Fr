@@ -125,7 +125,6 @@ export const TableViewer = ({ request, tableName }: Props): ReactElement => {
       alignItems="center"
       flexDir="column"
       gap="16"
-      h="calc(100vh - 72px)"
       justifyContent="center"
       maxW="100vw"
       px="32"
