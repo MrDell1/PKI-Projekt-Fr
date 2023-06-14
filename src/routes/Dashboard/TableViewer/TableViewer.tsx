@@ -76,10 +76,10 @@ export const TableViewer = ({ request, tableName }: Props): ReactElement => {
     });
   };
 
-  if (status === "loading" || !tableData) {
+  if (status === "loading") {
     return <Spinner />;
   }
-  if (status === "error" || !data) {
+  if (status === "error" || !data || !tableData) {
     return (
       <Box>
         <Text>{(error as Error).message}</Text>
