@@ -2,9 +2,17 @@ import { Button, Flex, Input, Text, useToast } from "@chakra-ui/react";
 import { useAnonService } from "@services/SessionService";
 import { useMutation } from "@tanstack/react-query";
 import { paths } from "@utils/paths";
-import { useFormik } from "formik";
+import { FormikErrors, useFormik } from "formik";
 import { ReactElement } from "react";
 import { useNavigate } from "react-router-dom";
+
+type FormValues = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  rePassword: string;
+};
 
 export const SignUpForm = (): ReactElement => {
   const anonService = useAnonService();
@@ -20,12 +28,14 @@ export const SignUpForm = (): ReactElement => {
       rePassword: "",
     },
     validate: (values) => {
+      const errors: FormikErrors<FormValues> = {};
       if (!values.email) {
         toast({
           title: "Error",
           status: "error",
           description: "Email is required",
         });
+        errors.email = "Email is required";
       }
       if (!values.firstName) {
         toast({
@@ -33,6 +43,7 @@ export const SignUpForm = (): ReactElement => {
           status: "error",
           description: "First name is required",
         });
+        errors.firstName = "First name is required";
       }
       if (!values.lastName) {
         toast({
@@ -40,6 +51,7 @@ export const SignUpForm = (): ReactElement => {
           status: "error",
           description: "Last name is required",
         });
+        errors.lastName = "Last name is required";
       }
       if (!values.password) {
         toast({
@@ -47,6 +59,7 @@ export const SignUpForm = (): ReactElement => {
           status: "error",
           description: "Password is required",
         });
+        errors.password = "Password is required";
       }
       if (!values.rePassword) {
         toast({
@@ -54,6 +67,7 @@ export const SignUpForm = (): ReactElement => {
           status: "error",
           description: "Repeat password",
         });
+        errors.rePassword = "Repeat password";
       }
       if (values.password !== values.rePassword) {
         toast({
@@ -61,7 +75,9 @@ export const SignUpForm = (): ReactElement => {
           status: "error",
           description: "Passwords are different",
         });
+        errors.password = "Passwords are different";
       }
+      return errors;
     },
     onSubmit: (values) => {
       mutate(values, {
