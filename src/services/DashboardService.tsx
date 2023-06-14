@@ -125,13 +125,15 @@ export const DashboardServiceProvider = ({ children }: Props): ReactElement => {
             throw new Error(result.error);
           }
 
-          const table = result.flatMap((resultRow) => {
-            const cells = [];
-            for (const [key, value] of Object.entries(resultRow)) {
-              cells.push({ columnName: key, value: value });
+          const table = result.flatMap(
+            (resultRow: { [s: string]: unknown } | ArrayLike<unknown>) => {
+              const cells = [];
+              for (const [key, value] of Object.entries(resultRow)) {
+                cells.push({ columnName: key, value: value });
+              }
+              return { cells };
             }
-            return { cells };
-          });
+          );
 
           return table;
         },

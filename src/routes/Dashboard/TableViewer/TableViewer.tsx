@@ -82,7 +82,7 @@ export const TableViewer = ({ request, tableName }: Props): ReactElement => {
   if (status === "error" || !data) {
     return (
       <Box>
-        <Text>{error.message}</Text>
+        <Text>{(error as Error).message}</Text>
       </Box>
     );
   }

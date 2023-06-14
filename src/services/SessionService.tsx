@@ -33,7 +33,6 @@ export type AuthService = {
 export type AnonService = {
   signIn: (value: AuthValue) => Promise<void>;
   oauthGoogle: (value: string) => Promise<void>;
-  oauthGithub: (value: string) => Promise<void>;
   signUp: (values: RegistrationArgs) => Promise<void>;
 };
 
