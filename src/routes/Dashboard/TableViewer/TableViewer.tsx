@@ -79,12 +79,16 @@ export const TableViewer = ({ request, tableName }: Props): ReactElement => {
   if (status === "loading") {
     return <Spinner />;
   }
-  if (status === "error" || !data || !tableData) {
+  if (status === "error" || !data) {
     return (
       <Box>
         <Text>{(error as Error).message}</Text>
       </Box>
     );
+  }
+
+  if (!tableData) {
+    return <Spinner />;
   }
 
   const sortData = (columnId: number) => {
