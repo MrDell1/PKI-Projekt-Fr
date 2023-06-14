@@ -83,6 +83,8 @@ export const SignUpForm = (): ReactElement => {
         },
       });
     },
+    validateOnBlur: false,
+    validateOnChange: false,
   });
   return (
     <form onSubmit={formik.handleSubmit}>
