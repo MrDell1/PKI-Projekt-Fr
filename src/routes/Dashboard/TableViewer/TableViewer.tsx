@@ -127,6 +127,7 @@ export const TableViewer = ({ request, tableName }: Props): ReactElement => {
       gap="16"
       justifyContent="center"
       maxW="100vw"
+      mt="72px"
       px="32"
     >
       <Flex flexDir="column" gap="8" w="full">
