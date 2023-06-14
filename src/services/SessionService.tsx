@@ -7,7 +7,7 @@ import {
   useMemo,
 } from "react";
 
-export const baseURL = "http://localhost:3000";
+export const baseURL = "https://pki-projekt.azurewebsites.net";
 
 export type AuthValue = {
   email: string;
