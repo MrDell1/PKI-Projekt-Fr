@@ -38,7 +38,7 @@ export const Dashboard = (): ReactElement => {
       <TopBar handleBack={setIsSubmitted} />
       <Flex
         alignItems="center"
-        h="calc(100vh - 72px)"
+        //h="calc(100vh - 72px)"
         justifyContent="center"
         py="16"
       >
