@@ -62,11 +62,6 @@ const LandingPage = (): ReactElement => {
                   Google
                 </Button>
               </Link>
-              {/* <Link to={getGithubUrl()}>
-            <Button bg="gray.700" size="md">
-              GitHub
-            </Button>
-          </Link> */}
             </Flex>
           </>
         ) : (

@@ -97,17 +97,43 @@ export const Button: ComponentStyleConfig = {
       },
       _hover: {
         bg: "green.400",
+        svg: {
+          fill: "white",
+        },
       },
     },
     tertiary: {
       w: "fit-content",
       h: "fit-content",
       bg: "transparent",
+      svg: {
+        fill: "red.500",
+      },
       _active: {
         bg: "green.300",
       },
       _hover: {
         bg: "green.400",
+        svg: {
+          fill: "white",
+        },
+      },
+    },
+    quaternary: {
+      w: "fit-content",
+      h: "fit-content",
+      bg: "transparent",
+      svg: {
+        fill: "red.500",
+      },
+      _active: {
+        bg: "transparent",
+      },
+      _hover: {
+        bg: "transparent",
+        svg: {
+          fill: "red.400",
+        },
       },
     },
   },

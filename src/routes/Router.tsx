@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Dashboard } from "./Dashboard/Dashboard";
 import { TableEditor } from "./TableEditor/TableEditor";
 
-const ContentWrapper = lazy(() => import("./ContentWrapper/ContentWrapper"));
 const SignInPage = lazy(() => import("./SignInPage/SignInPage"));
 const SignUpPage = lazy(() => import("./SignUpPage/SignUpPage"));
 const LandingPage = lazy(() => import("./LandingPage/LandingPage"));
